@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="pl.kibao.playground.recycleViewAnimations.MainActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:listitem="@layout/item_color" />
+
+    <RadioGroup
+        android:id="@+id/operations"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/panel_height"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/delete_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/delete_color" />
+
+        <RadioButton
+            android:id="@+id/add_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_color" />
+
+        <RadioButton
+            android:id="@+id/change_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/change_color" />
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/panel_height"
+        android:gravity="center">
+
+        <CheckBox
+            android:id="@+id/predictive_animations"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/predictive_animations" />
+
+        <CheckBox
+            android:id="@+id/custom_animator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/custom_animator" />
+
+    </LinearLayout>
+</LinearLayout>

@@ -49,7 +49,6 @@ public class ColorItemAnimator extends DefaultItemAnimator {
 
     @Override
     public boolean animateChange(@NonNull RecyclerView.ViewHolder oldViewHolder, @NonNull final RecyclerView.ViewHolder newViewHolder, @NonNull ItemHolderInfo preInfo, @NonNull final ItemHolderInfo postInfo) {
-        final ColorsAdapter.ColorViewHolder oldHolder = (ColorsAdapter.ColorViewHolder) oldViewHolder;
         final ColorsAdapter.ColorViewHolder newHolder = (ColorsAdapter.ColorViewHolder) newViewHolder;
         int startColor = ((ColorItemHolderInfo) preInfo).color;
         int newColor = ((ColorItemHolderInfo) postInfo).color;

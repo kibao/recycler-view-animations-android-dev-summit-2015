@@ -12,7 +12,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import java.util.HashMap;
-import java.util.List;
 
 public class ColorItemAnimator extends DefaultItemAnimator {
     private HashMap<RecyclerView.ViewHolder, AnimatorInfo> mAnimatorMap = new HashMap<>();
@@ -25,26 +24,6 @@ public class ColorItemAnimator extends DefaultItemAnimator {
     @Override
     public ItemHolderInfo obtainHolderInfo() {
         return new ColorItemHolderInfo();
-    }
-
-    @NonNull
-    @Override
-    public ItemHolderInfo recordPreLayoutInformation(@NonNull RecyclerView.State state, @NonNull RecyclerView.ViewHolder viewHolder, int changeFlags, @NonNull List<Object> payloads) {
-        ColorItemHolderInfo info = (ColorItemHolderInfo) super.recordPreLayoutInformation(state, viewHolder, changeFlags, payloads);
-        return getItemHolderInfo((ColorsAdapter.ColorViewHolder) viewHolder, info);
-    }
-
-    @NonNull
-    @Override
-    public ItemHolderInfo recordPostLayoutInformation(@NonNull RecyclerView.State state, @NonNull RecyclerView.ViewHolder viewHolder) {
-        ColorItemHolderInfo info = (ColorItemHolderInfo) super.recordPostLayoutInformation(state, viewHolder);
-        return getItemHolderInfo((ColorsAdapter.ColorViewHolder) viewHolder, info);
-    }
-
-    private ItemHolderInfo getItemHolderInfo(ColorsAdapter.ColorViewHolder viewHolder, ColorItemHolderInfo info) {
-        info.color = ((ColorDrawable) viewHolder.container.getBackground()).getColor();
-        info.text = (String) viewHolder.textView.getText();
-        return info;
     }
 
     @Override
@@ -116,6 +95,17 @@ public class ColorItemAnimator extends DefaultItemAnimator {
     class ColorItemHolderInfo extends ItemHolderInfo {
         int color;
         String text;
+
+        @Override
+        public ItemHolderInfo setFrom(RecyclerView.ViewHolder viewHolder, @AdapterChanges int flags) {
+            super.setFrom(viewHolder, flags);
+
+            final ColorsAdapter.ColorViewHolder holder = (ColorsAdapter.ColorViewHolder) viewHolder;
+            color = ((ColorDrawable) holder.container.getBackground()).getColor();
+            text = (String) holder.textView.getText();
+
+            return this;
+        }
     }
 
     class AnimatorInfo {

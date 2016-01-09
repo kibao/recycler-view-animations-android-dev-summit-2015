@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="color_height">96dp</dimen>
+    <dimen name="panel_height">52dp</dimen>
+    <dimen name="color_text_size">24sp</dimen>
+</resources>

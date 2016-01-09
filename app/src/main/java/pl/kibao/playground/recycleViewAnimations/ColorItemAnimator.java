@@ -33,8 +33,8 @@ public class ColorItemAnimator extends DefaultItemAnimator {
         int newColor = ((ColorItemHolderInfo) postInfo).color;
         final String oldText = ((ColorItemHolderInfo) preInfo).text;
         final String newText = ((ColorItemHolderInfo) postInfo).text;
-        ObjectAnimator fadeToBlack = ObjectAnimator.ofArgb(newHolder.container, "backgroundColor", startColor, Color.BLACK);
-        ObjectAnimator fadeFromBlack = ObjectAnimator.ofArgb(newHolder.container, "backgroundColor", Color.BLACK, newColor);
+        ObjectAnimator fadeToBlack = ObjectAnimatorHelper.ofArgb(newHolder.container, "backgroundColor", startColor, Color.BLACK);
+        ObjectAnimator fadeFromBlack = ObjectAnimatorHelper.ofArgb(newHolder.container, "backgroundColor", Color.BLACK, newColor);
         AnimatorSet bgAnim = new AnimatorSet();
         bgAnim.playSequentially(fadeToBlack, fadeFromBlack);
 
